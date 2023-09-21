@@ -5,16 +5,16 @@
             <link rel="stylesheet" href="style.css">
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
+            <script type="text/javascript" src="somejs.js"></script>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         </head>
-        <body>
+        <body onload="hideForm('register-form')">
+
             <button type="button"><a href="index.html">Home</a></button>
             <div class="container">
-                
-                <div class="login-page">
-                    
+                <div class="form-page">
                     <div class="form">
-                        <form method="post" action="login.php">
+                        <form method="post" action="login.php" id="login-form">
                             <h1>Login</h1>
                             <div class="textBoxDiv">
                                 <input type="text" placeholder="Username">
@@ -26,11 +26,30 @@
                             <div class="signup">
                                 Don't have an account?
                             </br>
-                            <a href="#">Register</a>
+                            <a href="#" onclick="hideForm('login-form');showForm('register-form');">Register</a>
+                            </div>
+                        </form>
+                        
+                        <form method="post" action="register.php" id="register-form">
+                            <h1>Register</h1>
+                            <div class="textBoxDiv">
+                                <input type="text" placeholder="Username">
+                            </div>
+                            <div class="textBoxDiv">
+                                <input type="text" placeholder="Password">
+                            </div>
+                            <div class="textBoxDiv">
+                                <input type="text" placeholder="Confirm Password">
+                            </div>
+                            <input type="submit" value="Register" class="registerButton" name="register_Button">
+                            <div class="login">
+                                Already have an account?
+                            </br>
+                            <a href="#" onclick="hideForm('register-form');showForm('login-form');">Login</a>
                             </div>
                         </form>
                     </div> <!--FORM-->
-                </div> <!--LOGIN-PAGE-->
+                </div> <!--FORM-PAGE-->
             </div> <!--CONTAINER-->
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
         </body>
