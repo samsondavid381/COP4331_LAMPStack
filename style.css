@@ -3,7 +3,7 @@ html {
   }
 body {
     background: blue; /* fallback for old browsers */
-    background: linear-gradient(to left top, blue, lightblue);
+    background: linear-gradient(to left top, blue, purple);
     background-repeat: no-repeat;
     background-size: cover;
     font-family: "Roboto", sans-serif;
@@ -23,7 +23,7 @@ body {
     border-radius: 10px;
   }
   
-  .form-page {
+  .form-container {
     width: 360px;
     padding: 15% 0 0;
     margin: auto;
