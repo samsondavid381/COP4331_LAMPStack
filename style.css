@@ -3,7 +3,7 @@ html {
   }
 body {
     background: blue; /* fallback for old browsers */
-    background: linear-gradient(to left top, blue, purple);
+    background: linear-gradient(to left top, blue, lightblue);
     background-repeat: no-repeat;
     background-size: cover;
     font-family: "Roboto", sans-serif;
