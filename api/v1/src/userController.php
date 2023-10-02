@@ -5,7 +5,7 @@ class UserController
     public function __construct(private UserGateWay $gateway)
     {}
     
-    public function processRequest(string $method, ?string $id) : void
+    public function processRequest(string $method, ?int $id) : void
     {
         if($id){
             $this->processResourceRequest($method, $id);
@@ -16,10 +16,10 @@ class UserController
 
     public function processResourceRequest(string $method, int $id) : void
     {
+        $user = $this->gateway->getUser($id);
         switch($method){
             case "GET":
-                $user = $this->gateway->get($id);
-                echo json_encode();
+                echo json_encode($user);
                 break;
             default:
                 http_response_code(400);
