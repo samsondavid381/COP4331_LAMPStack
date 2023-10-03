@@ -1,5 +1,10 @@
 <?php
-declare(strict_types=1);
+$components = explode("/", $_SERVER["REQUEST_URI"]);
+$path = $components[1];
+if($path = ''){
+    echo "Welcome to the API Root page!";
+    exit;
+}
 
 $configs = include('config.php');
 
@@ -12,15 +17,13 @@ set_exception_handler("ErrorHandler::handleException");
 
 header("Content-type: application/json; charset=UTF-8");
 
-$components = explode("/", $_SERVER["REQUEST_URI"]);
-$path = $components[1];
-
 $database = new Database($configs['host'], "Contact_Manager", $configs['username'], $configs['password']);
 
 if($path == "user"){
     $uG = new UserGateway($database);
     $userController = new UserController($uG);
     $userController->processRequest($_SERVER["REQUEST_METHOD"], intval($components[2]));
+    exit;
 }
 
 if($path == "contacts"){
