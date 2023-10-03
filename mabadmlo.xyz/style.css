@@ -3,29 +3,33 @@ html {
   }
 body {
     background: blue; /* fallback for old browsers */
-    background: linear-gradient(to left top, blue, purple);
+    background: linear-gradient(to left top, blue, lightblue);
     background-repeat: no-repeat;
     background-size: cover;
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;      
   }
-  
+
   .table {
     position: relative;
     z-index: 1;
     background: #FFFFFF;
-    margin: 5% 0% 5% 0%;
+    margin: 2% 0% 2% 0%;
     padding: 2%;
     text-align: left;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     border-collapse: separate;
     border-radius: 10px;
   }
+
+  .table th {
+    font-size: 18px;
+  }
   
   .form-container {
     width: 360px;
-    padding: 15% 0 0;
+    padding: 5% 0 0;
     margin: auto;
   }
   .form {
@@ -50,11 +54,15 @@ body {
     box-sizing: border-box;
     font-size: 14px;
   }
+  .form h1 {
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+  }
   .button {
     position: relative;
     z-index: 1;
     background: #FFFFFF;
-    margin:5% 2% 0% 0%;
+    margin:2% 2% 0% 0%;
     padding: 8px;
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
@@ -62,4 +70,75 @@ body {
     border:none;
   }
 
+  .search {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width:auto;
+    border: 0;
+    border-radius: 10px;
+    margin: 0 0 15px 0;
+    padding:8px;
+    box-sizing: border-box;
+    font-size: 14px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
 
+  .sidebar {
+    height: 100%; 
+    width: 0; /*Changed with js */
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    background-color:rgba(0, 0, 0);
+    overflow-x: hidden; 
+    padding-top: 60px; 
+    transition: 0.5s; 
+  }
+  .sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidebar a:hover {
+    color: lightblue;
+    font-size:30px;
+  }
+  
+  .sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 30px;
+    margin-left: 50px;
+  }
+  
+  .openbtn {
+    font-size: 30px;
+    background-color: transparent;
+    color: black;
+    width: fit-content;
+    height:auto;
+    margin:1%;
+    padding:5px;
+    border: none;
+    border-radius: 10px;
+    transition:0.3s;
+  }
+
+  .openbtn:hover {
+    color:white;
+  }
+
+  
+  /*This is for small screen compatability not exactly sure if necessary yet 
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }
+  */
