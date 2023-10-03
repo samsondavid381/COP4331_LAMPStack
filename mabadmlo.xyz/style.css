@@ -26,12 +26,13 @@ body {
   .table th {
     font-size: 18px;
   }
-  
+
   .form-container {
     width: 360px;
     padding: 5% 0 0;
     margin: auto;
   }
+
   .form {
     position: relative;
     z-index: 1;
@@ -42,6 +43,7 @@ body {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     border-radius: 10px;
   }
+
   .form input {
     font-family: "Roboto", sans-serif;
     outline: 0;
@@ -54,10 +56,12 @@ body {
     box-sizing: border-box;
     font-size: 14px;
   }
+
   .form h1 {
     font-family: "Roboto", sans-serif;
     font-weight: bold;
   }
+
   .button {
     position: relative;
     z-index: 1;
@@ -96,6 +100,7 @@ body {
     padding-top: 60px; 
     transition: 0.5s; 
   }
+
   .sidebar a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
@@ -134,7 +139,6 @@ body {
   .openbtn:hover {
     color:white;
   }
-
   
   /*This is for small screen compatability not exactly sure if necessary yet 
   @media screen and (max-height: 450px) {
