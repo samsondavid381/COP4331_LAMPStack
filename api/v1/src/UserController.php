@@ -2,27 +2,28 @@
 
 class UserController
 {
-    public function __construct(private UserGateway $gateway)
+    public function __construct(private UserGateway $gateway, private object $requestBody)
     {}
     
-    public function processRequest(string $method, ?int $id) : void
+    public function processRequest(string $method, ?int $id, object $requestBody) : void
     {
         if($id){
-            $this->processResourceRequest($method, $id);
+            $this->processResourceRequest($method, $id, $requestBody);
         } else {
             $this->processCollectionRequest($method);
         }
     }
 
-    public function processResourceRequest(string $method, int $id) : void
+    public function processResourceRequest(string $method, int $id, object $requestBody) : void
     {
-        $user = $this->gateway->getUser($id);
         switch($method){
             case "GET":
+                $user = $this->gateway->getUser($id);
                 echo json_encode($user);
                 break;
             case "PUT":
-                http_response_code(501);
+                $this->gateway->putUser($id, $requestBody);
+                echo json_encode("Successfully Updated User!");
                 break;
             default:
                 http_response_code(400);

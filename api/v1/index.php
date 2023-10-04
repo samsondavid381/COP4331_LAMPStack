@@ -3,13 +3,15 @@ $components = explode("/", $_SERVER["REQUEST_URI"]);
 $root = 3; //2 for deployment 3 for testing.
 $path = $components[$root]; 
 $componentLen = count($components);
-$id = null;
-if(($root+1) < $componentLen){
-    $id = $components[$root + 1];
-}
+
 if($path == null){
     print("Welcome to the API Root Directory!");
     exit;
+}
+
+$id = null;
+if(($root+1) < $componentLen){
+    $id = $components[$root + 1];
 }
 
 $para = [];
@@ -49,14 +51,16 @@ header("Content-type: application/json; charset=UTF-8");
 
 $database = new Database($configs->host, "contact_manager", $configs->username, $configs->password);
 
+$requestBody = (object)json_decode(file_get_contents('php://input'));
+
 if($path == "user"){
     $uG = new UserGateway($database);
-    $userController = new UserController($uG);
+    $userController = new UserController($uG, $requestBody);
     if($id){
-        $userController->processRequest($_SERVER["REQUEST_METHOD"], intval($id));
+        $userController->processRequest($_SERVER["REQUEST_METHOD"], intval($id), $requestBody);
     }
     else{
-        $userController->processRequest($_SERVER["REQUEST_METHOD"], null);
+        $userController->processRequest($_SERVER["REQUEST_METHOD"], null, $requestBody);
     }
     exit;
 }
@@ -66,10 +70,10 @@ if($path == "contacts"){
     $cG = new ContactGateway($database);
     $contactController = new ContactController($cG);
     if($id){
-        $contactController->processRequest($_SERVER["REQUEST_METHOD"], intval($id), $cpara);
+        $contactController->processRequest($_SERVER["REQUEST_METHOD"], intval($id), $cpara, $requestBody);
     }
     else{
-        $contactController->processRequest($_SERVER["REQUEST_METHOD"], null, $cpara);
+        $contactController->processRequest($_SERVER["REQUEST_METHOD"], null, $cpara, $requestBody);
     }
     exit;
 }

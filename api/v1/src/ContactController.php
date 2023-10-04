@@ -5,7 +5,7 @@ class ContactController
     public function __construct(private ContactGateway $gateway)
     {}
     
-    public function processRequest(string $method, ?int $uid, object $para) : void
+    public function processRequest(string $method, ?int $uid, object $para, object $requestBody) : void
     {
         if($uid){
             $contactList = $this->gateway->getContacts($uid, $para);
@@ -13,8 +13,13 @@ class ContactController
                 case "GET":
                     echo json_encode($contactList);
                     break;
+                case "PUT":
+                    $this->gateway->putContact($uid, $para, $requestBody);
+                    echo json_encode("Successfully Updated Contact!");
+                    break;
                 case "POST":
-                    http_response_code(501);
+                    $this->gateway->postContact($uid, $para, $requestBody);
+                    echo json_encode("Successfully Updated Contact!");
                     break;
                 default:
                     http_response_code(400);
