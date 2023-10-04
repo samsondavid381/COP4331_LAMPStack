@@ -10,7 +10,7 @@ class UserGateway
     public function getContacts(?int $id) : array | false
     {
         if($id){
-            $sql = "SELECT ContactId, FirstName, PrimaryEmail, PrimaryPhone FROM Contacts WHERE UserId = :id";
+            $sql = "SELECT ContactId, FirstName, PrimaryEmail, PrimaryPhone FROM contacts WHERE UserId = :id";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindValue(":id", $id, PDO::PARAM_INT);
             $stmt->execute();
@@ -23,7 +23,7 @@ class UserGateway
             return $data;
         }
         else{
-            $sql = "SELECT ContactId, FirstName, PrimaryEmail, PrimaryPhone FROM Contacts";
+            $sql = "SELECT ContactId, FirstName, PrimaryEmail, PrimaryPhone, UserId FROM contacts";
             $stmt = $this->conn->query($sql);
     
             $data = [];
@@ -35,3 +35,4 @@ class UserGateway
         }
     }
 }
+?>

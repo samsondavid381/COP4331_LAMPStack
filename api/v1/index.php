@@ -5,7 +5,6 @@ if($path == null){
     print("Welcome to the API Root Directory!");
     exit;
 }
-
 $configs = include('config.php');
 
 spl_autoload_register(function($class){
@@ -17,10 +16,9 @@ set_exception_handler("ErrorHandler::handleException");
 
 header("Content-type: application/json; charset=UTF-8");
 
-$database = new Database($configs->host, "Contact_Manager", $configs->username, $configs->password);
+$database = new Database($configs->host, "contact_manager", $configs->username, $configs->password);
 
 if($path == "user"){
-
     $uG = new UserGateway($database);
     $userController = new UserController($uG);
     $userController->processRequest($_SERVER["REQUEST_METHOD"], intval($components[3]));
@@ -28,13 +26,13 @@ if($path == "user"){
 }
 
 if($path == "contacts"){
-    // $components[2] can be the id of the user, with an oauth key allowing access.
+    // $components[3] can be the id of the user, with an oauth key allowing access.
     http_response_code(501);
     exit;
 }
 
 if($path == "login"){
-    // $components[2] needs to be the username of the user.
+    // $components[3] needs to be the username of the user.
     http_response_code(501);
     exit;
 }

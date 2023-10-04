@@ -22,7 +22,7 @@ class UserGateway
     
     public function getUser(int $id) : array | false
     {
-        $sql = "SELECT UserId, Username FROM Users WHERE UserId = :id";
+        $sql = "SELECT UserId, Username FROM users WHERE UserId = :id";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindValue(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
@@ -30,3 +30,4 @@ class UserGateway
         return $data;
     }
 }
+?>
