@@ -13,3 +13,4 @@ class Database
         return new PDO ($dsn, $this->user, $this->password);
     }
 }
+?>

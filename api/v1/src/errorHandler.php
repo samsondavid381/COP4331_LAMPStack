@@ -24,3 +24,4 @@ class ErrorHandler
         throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
     }
 }
+?>
