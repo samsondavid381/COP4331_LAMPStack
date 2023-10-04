@@ -6,6 +6,19 @@ class UserGateway
     {
         $this->conn = $database->getConnection();
     }
+
+    public function getAllUsers() : array | false
+    {
+        $sql = "SELECT UserId, Username FROM users";
+        $stmt = $this->conn->query($sql);
+        $data = [];
+
+        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+            $data[] = $row;
+        }
+
+        return $data;
+    }
     
     public function getUser(int $id) : array | false
     {

@@ -1,8 +1,8 @@
 <?php
 $components = explode("/", $_SERVER["REQUEST_URI"]);
-$path = $components[1];
-if($path = ''){
-    echo "Welcome to the API Root page!";
+$path = $components[2]; //set to $components[2] for deployment and $components[3] for testing!
+if($path == null){
+    print("Welcome to the API Root Directory!");
     exit;
 }
 
@@ -17,12 +17,13 @@ set_exception_handler("ErrorHandler::handleException");
 
 header("Content-type: application/json; charset=UTF-8");
 
-$database = new Database($configs['host'], "Contact_Manager", $configs['username'], $configs['password']);
+$database = new Database($configs->host, "Contact_Manager", $configs->username, $configs->password);
 
 if($path == "user"){
+
     $uG = new UserGateway($database);
     $userController = new UserController($uG);
-    $userController->processRequest($_SERVER["REQUEST_METHOD"], intval($components[2]));
+    $userController->processRequest($_SERVER["REQUEST_METHOD"], intval($components[3]));
     exit;
 }
 
