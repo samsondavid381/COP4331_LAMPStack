@@ -13,7 +13,7 @@ body {
 
   .table {
     position: relative;
-    z-index: 1;
+    z-index: 0;
     background: #FFFFFF;
     margin: 2% 0% 2% 0%;
     padding: 2%;
@@ -27,6 +27,20 @@ body {
     font-size: 18px;
   }
 
+  .table tr:hover {
+    transition:0.2s;
+    background-color:darkgray;
+  }
+  
+  .userCard {
+    margin:0 auto;
+    background:#FFFFFF;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    border-radius: 10px;
+    z-index: 3;
+  }
+
   .form-container {
     width: 360px;
     padding: 5% 0 0;
@@ -35,7 +49,7 @@ body {
 
   .form {
     position: relative;
-    z-index: 1;
+    z-index: 3;
     background: #FFFFFF;
     max-width: 360px;
     padding: 10%;
@@ -64,7 +78,7 @@ body {
 
   .button {
     position: relative;
-    z-index: 1;
+    z-index: 0;
     background: #FFFFFF;
     margin:2% 2% 0% 0%;
     padding: 8px;
@@ -92,7 +106,7 @@ body {
     height: 100%; 
     width: 0; /*Changed with js */
     position: fixed;
-    z-index: 100;
+    z-index: 4;
     top: 0;
     left: 0;
     background-color:rgba(0, 0, 0);
@@ -115,12 +129,15 @@ body {
     font-size:30px;
   }
   
-  .sidebar .closebtn {
+.closebtn {
     position: absolute;
     top: 0;
     right: 25px;
     font-size: 30px;
     margin-left: 50px;
+    cursor:pointer;
+    text-decoration: none;
+    color:black;
   }
   
   .openbtn {
@@ -146,3 +163,16 @@ body {
     .sidebar a {font-size: 18px;}
   }
   */
+
+  .blurContainer {
+    position:fixed;
+    padding:0;
+    margin:0;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background:rgba(0,0,0,0);
+    z-index:-1;
+    transition:0.3s;
+  }
