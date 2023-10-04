@@ -2,6 +2,7 @@
 <html>
         <head>
             <title>Login</title>
+            <link rel="icon" href='https://icons.iconarchive.com/icons/graphicloads/100-flat-2/128/contacts-icon.png'>
             <link rel="stylesheet" href="style.css">
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,14 +22,14 @@
 
                         <form method="post" action="login.php" id="login-form">
                             <h1 >Login</h1>
-                            <div class="textBoxDiv">
+                            <div>
                                 <input type="text" placeholder="Username">
                             </div>
-                            <div class="textBoxDiv">
+                            <div>
                                 <input type="text" placeholder="Password">
                             </div>
-                            <input type="submit" value="Submit" class="loginButton" name="login_Button">
-                            <div class="signup">
+                            <input type="submit" value="Submit" name="login_Button">
+                            <div>
                                 Don't have an account?
                             </br>
                             <a href="#" onclick="hideForm('login-form');showForm('register-form');">Register</a>
@@ -37,17 +38,17 @@
 
                         <form method="post" action="register.php" id="register-form">
                             <h1 >Register</h1>
-                            <div class="textBoxDiv">
+                            <div>
                                 <input type="text" placeholder="Username">
                             </div>
-                            <div class="textBoxDiv">
+                            <div>
                                 <input type="text" placeholder="Password">
                             </div>
-                            <div class="textBoxDiv">
+                            <div>
                                 <input type="text" placeholder="Confirm Password">
                             </div>
-                            <input type="submit" value="Submit" class="registerButton" name="register_Button">
-                            <div class="login">
+                            <input type="submit" value="Submit" name="register_Button">
+                            <div>
                                 Already have an account?
                             </br>
                             <a href="#" onclick="hideForm('register-form');showForm('login-form');">Login</a>
