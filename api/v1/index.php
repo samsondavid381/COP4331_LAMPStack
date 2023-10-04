@@ -1,10 +1,13 @@
 <?php
 $components = explode("/", $_SERVER["REQUEST_URI"]);
-$path = $components[2]; //set to $components[2] for deployment and $components[3] for testing!
+$root = 3; //2 for deployment 3 for testing.
+$path = $components[$root]; 
+$componentLen = count($components);
 if($path == null){
     print("Welcome to the API Root Directory!");
     exit;
 }
+
 $configs = include('config.php');
 
 spl_autoload_register(function($class){
@@ -21,7 +24,12 @@ $database = new Database($configs->host, "contact_manager", $configs->username, 
 if($path == "user"){
     $uG = new UserGateway($database);
     $userController = new UserController($uG);
-    $userController->processRequest($_SERVER["REQUEST_METHOD"], intval($components[3]));
+    if(($root+1) > $componentLen){
+        $userController->processRequest($_SERVER["REQUEST_METHOD"], intval($components[$root+1]));
+    }
+    else{
+        $userController->processRequest($_SERVER["REQUEST_METHOD"], null);
+    }
     exit;
 }
 

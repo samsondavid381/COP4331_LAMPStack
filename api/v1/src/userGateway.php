@@ -16,7 +16,7 @@ class UserGateway
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             $data[] = $row;
         }
-
+        
         return $data;
     }
     

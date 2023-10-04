@@ -29,10 +29,10 @@ class UserController
 
     public function processCollectionRequest(string $method) : void
     {
-        $user = $this->gateway->getAllUsers();
+        $arr = $this->gateway->getAllUsers();
         switch($method){
             case "GET":
-                echo json_encode($user);
+                echo json_encode($arr);
                 break;
             default:
                 http_response_code(400);
