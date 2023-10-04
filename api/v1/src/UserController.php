@@ -21,8 +21,12 @@ class UserController
             case "GET":
                 echo json_encode($user);
                 break;
+            case "PUT":
+                http_response_code(501);
+                break;
             default:
                 http_response_code(400);
+                echo json_encode("The Request Verb is Invalid!");
                 exit;
         }
     }
@@ -36,6 +40,7 @@ class UserController
                 break;
             default:
                 http_response_code(400);
+                echo json_encode("The Request Verb is Invalid!");
                 exit;
         }
     }

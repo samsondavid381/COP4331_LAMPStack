@@ -3,9 +3,37 @@ $components = explode("/", $_SERVER["REQUEST_URI"]);
 $root = 3; //2 for deployment 3 for testing.
 $path = $components[$root]; 
 $componentLen = count($components);
+$id = null;
+if(($root+1) < $componentLen){
+    $id = $components[$root + 1];
+}
 if($path == null){
     print("Welcome to the API Root Directory!");
     exit;
+}
+
+$para = [];
+if($id == null){
+    $pathPBD = explode("?", $path);
+    if(count($pathPBD) > 1){
+        $path = $pathPBD[0];
+        $paraString = explode("&", $pathPBD[1]);
+        for($i = 0; $i < count($paraString); $i++){
+            $split = explode("=", $paraString[$i]);
+            $para[$split[0]] = $split[1];
+        }
+    }
+}
+else{
+    $idPBD = explode("?", $id);
+    if(count($idPBD) > 1){
+        $id = $idPBD[0];
+        $paraString = explode("&", $idPBD[1]);
+        for($i = 0; $i < count($paraString); $i++){
+            $split = explode("=", $paraString[$i]);
+            $para[$split[0]] = $split[1];
+        }
+    }
 }
 
 $configs = include('config.php');
@@ -24,8 +52,8 @@ $database = new Database($configs->host, "contact_manager", $configs->username, 
 if($path == "user"){
     $uG = new UserGateway($database);
     $userController = new UserController($uG);
-    if(($root+1) > $componentLen){
-        $userController->processRequest($_SERVER["REQUEST_METHOD"], intval($components[$root+1]));
+    if($id){
+        $userController->processRequest($_SERVER["REQUEST_METHOD"], intval($id));
     }
     else{
         $userController->processRequest($_SERVER["REQUEST_METHOD"], null);
@@ -34,13 +62,19 @@ if($path == "user"){
 }
 
 if($path == "contacts"){
-    // $components[3] can be the id of the user, with an oauth key allowing access.
-    http_response_code(501);
+    $cpara = (new ContactParameters)->GetParameters($para);
+    $cG = new ContactGateway($database);
+    $contactController = new ContactController($cG);
+    if($id){
+        $contactController->processRequest($_SERVER["REQUEST_METHOD"], intval($id), $cpara);
+    }
+    else{
+        $contactController->processRequest($_SERVER["REQUEST_METHOD"], null, $cpara);
+    }
     exit;
 }
 
 if($path == "login"){
-    // $components[3] needs to be the username of the user.
     http_response_code(501);
     exit;
 }
