@@ -80,6 +80,8 @@ if($path == "contacts"){
 
 if($path == "login"){
     $loginGate = new loginGateway($databse);
+    $loginController = new loginController($loginGate, $requestBody);
+    $loginController->processRequest($_SERVER["REQUEST_METHOD"], $_POST["username"], $_POST["password"]);
     exit;
 }
 
