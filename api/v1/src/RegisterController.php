@@ -8,7 +8,6 @@ class RegisterController
     {
         if($password != $confirm)
         {
-            http_response_code(400);
             echo json_encode("Passwords do not match");
             exit;
         }
