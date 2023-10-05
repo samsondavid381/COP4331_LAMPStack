@@ -86,7 +86,9 @@ if($path == "login"){
 }
 
 if($path == "register"){
-    http_response_code(501);
+    $registerGate = new registerGateway($database);
+    $registerController = new registerController($registerGate, $requestBody);
+    $registerController->processRequest($_SERVER["REQUEST_METHOD"], $_POST["username"], $_POST["password"], $_POST["confirm"]);
     exit;
 }
 
