@@ -83,6 +83,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $loginGate = new loginGateway($databse);
         $loginController = new loginController($loginGate, $requestBody);
         $user = $loginController->processRequest($_POST["username"], $_POST["password"]);
+
+        if(empty($user)) {
+            echo json_encode("No Account matches username and password");
+        }
+        else {
+            echo json_encode($user);
+        }
+        
         exit;
     }
 
