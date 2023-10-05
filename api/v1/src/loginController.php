@@ -4,7 +4,7 @@ class loginController
 {
     public function __construct(private loginGateway $gateway, private object $requestBody) {}
 
-    public function processRequest(string $method, string $username, string $password, object $requestBody) : void
+    public function processRequest(string $method, string $username, string $password) : void
     {
         if($method == "POST") {
             $user = $this->gateway->getAccount($username, $password);
