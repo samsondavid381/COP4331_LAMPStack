@@ -79,7 +79,7 @@ if($path == "contacts"){
 }
 
 if($path == "login"){
-    $loginGate = new LoginGateway($databse);
+    $loginGate = new LoginGateway($database);
     $loginController = new LoginController($loginGate, $requestBody);
     $user = $loginController->processRequest($id, $para['password']);
 
