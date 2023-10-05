@@ -1,5 +1,5 @@
 <?php
-class loginGateway
+class LoginGateway
 {
     private PDO $conn;
 
