@@ -2,22 +2,29 @@
 
 class registerGateway {
     private PDO $conn;
-    private string $username;
-    private string $password;
 
-    public function __construct(Database $database, string $username, string $password)
+    public function __construct(Database $database)
     {
         $this->conn = $database->getConnection();
-        $this->$username = $username;
-        $this->$password = $password;
     }
 
-    public function addUser() {
-        $sql = "INSERT INTO users (Username, Password) VALUES (:username, :password);";
+    //check if username is in use
+    public function usernameTaken(String $username) {
+        $sql = "SELECT 
+    }
 
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(":username", $this->username);
-        $stmt->bindParam(":password", $this->password);
-        $stmt->execute();
+    public function addUser($username, $password) {
+        if(!usernameTaken($username)){
+            $sql = "INSERT INTO users (Username, Password) VALUES (:username, :password);";
+
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(":username", $username);
+            $stmt->bindParam(":password", $password);
+            $stmt->execute();
+        }
+        else {
+            //this needs to be changed
+            echo "<p>Username Taken!</p><br>";
+        }
     }
 }
