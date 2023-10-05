@@ -12,7 +12,7 @@ class LoginGateway
     public function getAccount(string $username, string $password) {
         
         if(!empty($username) && !empty($password)){
-            $sql = "SELECT * FROM users WHERE Username = :username AND Password = :password;";
+            $sql = "SELECT UserId, Username FROM users WHERE Username = :username AND Password = :password;";
 
             $stmt = $this->conn->prepare($sql);
             $stmt->bindValue(":username", $username);
