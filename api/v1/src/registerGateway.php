@@ -1,6 +1,6 @@
 <?php
 
-class registerGateway {
+class RegisterGateway {
     private PDO $conn;
 
     public function __construct(Database $database)
