@@ -4,7 +4,7 @@ class registerController
 {
     public function __construct(private registerGateway $gateway, private object $requestBody) {}
 
-    public function processRequest(string $method, string $username, string $password, string $confirm) : void
+    public function processRequest(string $username, string $password, string $confirm) : void
     {
         if($password != $confirm)
         {
