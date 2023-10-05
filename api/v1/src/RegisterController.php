@@ -1,8 +1,8 @@
 <?php
 
-class registerController
+class RegisterController
 {
-    public function __construct(private registerGateway $gateway, private object $requestBody) {}
+    public function __construct(private RegisterGateway $gateway, private object $requestBody) {}
 
     public function processRequest(string $username, string $password, string $confirm) : void
     {
