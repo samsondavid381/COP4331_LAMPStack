@@ -10,15 +10,22 @@ class loginGateway
 
     //This function gets all info from database on a user based on their username and password
     public function getAccount(string $username, string $password) {
-        $sql = "SELECT * FROM users WHERE Username = :username AND Password = :password;";
+        
+        if(!empty($username) && !empty($password)){
+            $sql = "SELECT * FROM users WHERE Username = :username AND Password = :password;";
 
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindValue(":username", $username);
-        $stmt->bindValue(":password", $password);
-        $stmt->execute();
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindValue(":username", $username);
+            $stmt->bindValue(":password", $password);
+            $stmt->execute();
 
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        //if result is empty, username and/or password are wrong
-        return $result;
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            //if result is empty, username and/or password are wrong
+            return $result;
+        }
+        else
+        {
+            
+        }
     }
 }
