@@ -79,7 +79,7 @@ if($path == "contacts"){
 }
 
 if($path == "login"){
-    http_response_code(501);
+    $loginGate = new loginGateway($databse);
     exit;
 }
 
