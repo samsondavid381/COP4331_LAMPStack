@@ -23,7 +23,10 @@ class registerGateway {
     }
 
     public function addUser($username, $password) {
-        if(!usernameTaken($username) && !empty($username && !empty($password){
+        if(empty($username) || empty($password) {
+           echo json_encode("Please enter a username and password");
+        }
+        else if(!usernameTaken($username)){
             $sql = "INSERT INTO users (Username, Password) VALUES (:username, :password);";
 
             $stmt = $this->conn->prepare($sql);
