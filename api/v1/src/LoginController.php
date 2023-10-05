@@ -1,8 +1,8 @@
 <?php
 
-class loginController
+class LoginController
 {
-    public function __construct(private loginGateway $gateway, private object $requestBody) {}
+    public function __construct(private LoginGateway $gateway, private object $requestBody) {}
 
     public function processRequest(string $username, string $password) : void
     {
