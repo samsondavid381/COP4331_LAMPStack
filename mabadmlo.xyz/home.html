@@ -17,7 +17,7 @@
       <a href="login.html">Logout</a>
     </div>
     <button class="openbtn" onclick="openNav()">&#9776;</button>
-        <div class="container">
+    <div class="container">
           <div class="form-container" style="margin:0 auto; padding:25px;position:absolute">
             <div class="form" id="add-form">
                 <form method="" action="" id="add-form">
@@ -42,14 +42,15 @@
                     </br>
                 </form>
               </div> <!--FORM-->
-        </div> <!--FORM-PAGE-->
+        </div> <!--FORM-Container-->
+        
             <h1>Your Contacts</h1>
             <button onclick="showForm('add-form');showBlur();" class ='button' style='display:inline-block;font-size:15px;' id="add-button">Add</button>
             <button class ='button' style='display:inline-block;font-size:15px;'>Delete</button>
             <button class ='button' style='display:inline-block;font-size:15px;'>Update</button>
             <input class ='search' style='display:inline-block;font-size:15px;'type="text" placeholder="Search"></input> <!--Phone number needs to be in (123)-123-1234 format before getting send as request-->
-            <div class="userCard" id="userCard">John Smith<br>(123)-456-7890
-            <a class="closebtn" onclick="hideUser();">&times;</a>
+              <div class="userCard" id="userCard">John Smith<br>(123)-456-7890
+                <a class="closebtn" onclick="hideUser();hideBlur();">&times;</a>
             </div>
             <table class="table" style="position:relative;">
                 <tr>
@@ -59,7 +60,7 @@
                   <th>Email</th>
                   <th>Address</th>
                 </tr>
-                <tr onclick="showUser();" style="cursor:pointer">
+                <tr onclick="showUser();showBlur();" style="cursor:pointer">
                   <td></td>
                   <td></td>
                   <td></td>

@@ -20,15 +20,16 @@
                 <div class="form-container">
                     <div class="form">
 
-                        <form method="post" action="login.php" id="login-form">
+                        <form onsubmit ="login.js" method="post" action="login.js" id="login-form">
                             <h1 >Login</h1>
                             <div>
-                                <input type="text" name="username" placeholder="Username">
+                                <input type="text" id ="username" name="username" placeholder="Username">
                             </div>
                             <div>
-                                <input type="text" name="password" placeholder="Password">
+                                <input type="text" id="password" name="password" placeholder="Password">
                             </div>
-                            <input type="submit" value="Submit" name="login_Button">
+                            <input type="submit" value="Submit" name="loginButton">
+                            <p style="color:red;" id="resultMessage"></p>
                             <div>
                                 Don't have an account?
                             </br>
