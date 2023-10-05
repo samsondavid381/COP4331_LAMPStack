@@ -1,4 +1,9 @@
 <?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 $components = explode("/", $_SERVER["REQUEST_URI"]);
 $root = 3; //2 for deployment 3 for testing.
 $path = $components[$root]; 
@@ -87,10 +92,11 @@ if($path == "login"){
         echo json_encode("No Account matches username and password");
     }
     else {
-        require_once "Config_Session.php";
+        require_once "src/Config_Session.php";
         $_SESSION["user"] = $user;
+
+        echo json_encode($user);
     }
-        
     exit;
 }
 
