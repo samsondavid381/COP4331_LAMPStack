@@ -78,29 +78,27 @@ if($path == "contacts"){
     exit;
 }
 
-if($_SERVER["REQUEST_METHOD"] == "POST") {
-    if($path == "login"){
-        $loginGate = new LoginGateway($databse);
-        $loginController = new LoginController($loginGate, $requestBody);
-        $user = $loginController->processRequest($_POST["username"], $_POST["password"]);
+if($path == "login"){
+    $loginGate = new LoginGateway($databse);
+    $loginController = new LoginController($loginGate, $requestBody);
+    $user = $loginController->processRequest($_POST["username"], $_POST["password"]);
 
-        if(empty($user)) {
-            echo json_encode("No Account matches username and password");
-        }
-        else {
-            echo json_encode($user);
-        }
-        
-        exit;
+    if(empty($user)) {
+        echo json_encode("No Account matches username and password");
     }
-
-    if($path == "register"){
-        $registerGate = new RegisterGateway($database);
-        $registerController = new RegisterController($registerGate, $requestBody);
-        $registerController->processRequest($_POST["username"], $_POST["password"], $_POST["confirm"]);
-        exit;
-    }   
+    else {
+        echo json_encode($user);
+    }
+        
+    exit;
 }
+
+if($path == "register"){
+    $registerGate = new RegisterGateway($database);
+    $registerController = new RegisterController($registerGate, $requestBody);
+    $registerController->processRequest($_POST["username"], $_POST["password"], $_POST["confirm"]);
+    exit;
+}   
 
 http_response_code(404);
 exit;
