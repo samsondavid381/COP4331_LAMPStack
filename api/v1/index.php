@@ -87,7 +87,8 @@ if($path == "login"){
         echo json_encode("No Account matches username and password");
     }
     else {
-        echo json_encode($user);
+        require_once "Config_Session.php";
+        $_SESSION["user"] = $user;
     }
         
     exit;
