@@ -78,18 +78,20 @@ if($path == "contacts"){
     exit;
 }
 
-if($path == "login"){
-    $loginGate = new loginGateway($databse);
-    $loginController = new loginController($loginGate, $requestBody);
-    $loginController->processRequest($_SERVER["REQUEST_METHOD"], $_POST["username"], $_POST["password"]);
-    exit;
-}
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    if($path == "login"){
+        $loginGate = new loginGateway($databse);
+        $loginController = new loginController($loginGate, $requestBody);
+        $loginController->processRequest($_POST["username"], $_POST["password"]);
+        exit;
+    }
 
-if($path == "register"){
-    $registerGate = new registerGateway($database);
-    $registerController = new registerController($registerGate, $requestBody);
-    $registerController->processRequest($_SERVER["REQUEST_METHOD"], $_POST["username"], $_POST["password"], $_POST["confirm"]);
-    exit;
+    if($path == "register"){
+        $registerGate = new registerGateway($database);
+        $registerController = new registerController($registerGate, $requestBody);
+        $registerController->processRequest($_POST["username"], $_POST["password"], $_POST["confirm"]);
+        exit;
+    }   
 }
 
 http_response_code(404);
