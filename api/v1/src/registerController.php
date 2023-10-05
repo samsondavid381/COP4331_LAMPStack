@@ -13,16 +13,8 @@ class registerController
             exit;
         }
         else {
-            if($method == "POST") {
-                $user = $this->gateway->addUser($username, $password);
-                echo json_encode($user);
-            }
-            else 
-            {
-                http_response_code(400);
-                echo json_encode("The Request Verb is invalid");
-                exit;
-            }
+            $user = $this->gateway->addUser($username, $password);
+            echo json_encode($user);
         }
     }
 }  
