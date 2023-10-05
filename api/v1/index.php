@@ -82,7 +82,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     if($path == "login"){
         $loginGate = new loginGateway($databse);
         $loginController = new loginController($loginGate, $requestBody);
-        $loginController->processRequest($_POST["username"], $_POST["password"]);
+        $user = $loginController->processRequest($_POST["username"], $_POST["password"]);
         exit;
     }
 
