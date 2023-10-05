@@ -25,7 +25,7 @@ class loginGateway
         }
         else
         {
-            
+            echo json_encode("Please enter a username and password");
         }
     }
 }
