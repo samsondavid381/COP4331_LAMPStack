@@ -8,8 +8,8 @@ class loginGateway
     public function __construct(Database $database, string $username, string $password)
     {
         $this->conn = $database->getConnection();
-        $this->$username = $username;
-        $this->$password = $password;
+        $this->username = $username;
+        $this->password = $password;
     }
 
     //This function gets all info from database on a user based on their username and password
@@ -17,8 +17,8 @@ class loginGateway
         $sql = "SELECT * FROM users WHERE Username = :username AND Password = :password;";
 
         $stmt = $this->conn->prepare($sql);
-        $stmt->bindValue(":username", $username);
-        $stmt->bindValue(":password", $password);
+        $stmt->bindValue(":username", $this->username);
+        $stmt->bindValue(":password", $this->password);
         $stmt->execute();
 
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
