@@ -36,7 +36,7 @@ class RegisterGateway {
         }
         else {
             //this needs to be changed
-            echo "<p>Username Taken!</p><br>";
+            echo json_encode("Username taken!");
         }
     }
 }
