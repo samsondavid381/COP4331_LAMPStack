@@ -80,8 +80,8 @@ if($path == "contacts"){
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     if($path == "login"){
-        $loginGate = new loginGateway($databse);
-        $loginController = new loginController($loginGate, $requestBody);
+        $loginGate = new LoginGateway($databse);
+        $loginController = new LoginController($loginGate, $requestBody);
         $user = $loginController->processRequest($_POST["username"], $_POST["password"]);
 
         if(empty($user)) {
@@ -95,8 +95,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if($path == "register"){
-        $registerGate = new registerGateway($database);
-        $registerController = new registerController($registerGate, $requestBody);
+        $registerGate = new RegisterGateway($database);
+        $registerController = new RegisterController($registerGate, $requestBody);
         $registerController->processRequest($_POST["username"], $_POST["password"], $_POST["confirm"]);
         exit;
     }   
