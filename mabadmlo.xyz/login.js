@@ -1,13 +1,11 @@
 function validateLoginForm() {
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
-    var apiUrl = "https://api.mabadmlo.xyz/v1/login/" + encodeURIComponent(username) + "?password=" + encodeURIComponent(password);
-
+    var apiUrl = "https://api.mabadmlo.xyz/v1/login/" + username + "?password=" + password;
+    console.log(apiUrl);
+    
     fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
+        method: 'POST'
     })
     .then(response => {
         if (response.ok) {
