@@ -22,7 +22,7 @@
                 <div class="form-container">
                     <div class="form">
 
-                        <form onsubmit="validateLoginForm(); return false;" method="post" action="login.php" id="login-form">
+                        <form onsubmit="return validateLoginForm(); return false;" method="post" id="login-form">
                             <h1 >Login</h1>
                             <div>
                                 <input type="text" id ="username" name="username" placeholder="Username">
@@ -39,7 +39,7 @@
                             </div>
                         </form>
 
-                        <form onsubmit="validateRegistrationForm(); return false;" method="post" action="register.php" id="register-form">
+                        <form onsubmit="return validateRegistrationForm(); return false;" method="post" id="register-form">
                             <h1 >Register</h1>
                             <div>
                                 <input type="text" name="username" placeholder="Username">
