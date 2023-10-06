@@ -8,9 +8,13 @@ function hideForm(id)
 } 
 function openNav() {
     document.getElementById("sidebar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
   }
+  
+
 function closeNav() {
     document.getElementById("sidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
   }
 function showBlur(){
   document.getElementById("blurContainer").style.background="rgba(0,0,0,0.75)";
@@ -19,10 +23,4 @@ function showBlur(){
 function hideBlur(){
   document.getElementById("blurContainer").style.background="rgba(0,0,0,0)";
   document.getElementById("blurContainer").style.zIndex="-1"
-}
-function showUser(){
-  document.getElementById("userCard").style.display="block"
-}
-function hideUser(){
-  document.getElementById("userCard").style.display="none"
 }
