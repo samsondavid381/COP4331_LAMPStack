@@ -36,7 +36,7 @@ class RegisterGateway {
             $stmt->bindParam(":password", $password);
             $stmt->execute();
 
-            $sql = "SELECT UserId, Username FROM users WHERE username = :username";
+            $sql = "SELECT UserId FROM users WHERE username = :username";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindValue(":username", $username, PDO::PARAM_INT);
             $stmt->execute();
