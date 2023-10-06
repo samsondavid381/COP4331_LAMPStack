@@ -9,7 +9,8 @@ class RegisterGateway {
     }
 
     //check if username is in use
-    public function usernameTaken(String $username) {
+    public function usernameTaken(String $username) : bool 
+    {
         $sql = "SELECT * FROM users WHERE Username = :username;";
 
         $stmt = $this->conn->prepare($sql);
@@ -17,8 +18,9 @@ class RegisterGateway {
         $stmt->execute();
 
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        if(empty($result))
-           return false;
+        if(empty($result)){
+            return false;
+        }
         return true;
     }
 
