@@ -96,6 +96,8 @@ if($path == "login"){
     else {
         require_once "src/Config_Session.php";
         $_SESSION["user"] = $user;
+        setcookie("userID", $user["userID"], time() + (86400), "/");
+        setcookie("username", $user["username"], time() + (86400), "/");
 
         echo json_encode($user);
     }
@@ -106,9 +108,11 @@ if($path == "register"){
     $registerGate = new RegisterGateway($database);
     $registerController = new RegisterController($registerGate, $requestBody);
     $user = $registerController->processRequest($requestBody->Username, $requestBody->Password, $requestBody->Confirm);
-    json_encode($user);
+    echo json_encode($user);
     require_once "src/Config_Session.php";
     $_SESSION["user"] = $user;
+    setcookie("userID", $user["userID"], time() + (86400), "/");
+    setcookie("username", $user["username"], time() + (86400), "/");
     
     exit;
 }   
