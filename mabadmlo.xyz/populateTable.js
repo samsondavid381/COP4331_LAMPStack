@@ -27,7 +27,7 @@ function populateTable(contacts) {
             phoneCell.textContent = contact.phone;
             emailCell.textContent = contact.email;
             row.addEventListener('click', () => {
-                showUser(); 
+                showUser(contact); 
                 showBlur(); 
             });
     });
