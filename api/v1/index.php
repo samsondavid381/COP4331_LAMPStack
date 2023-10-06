@@ -1,4 +1,5 @@
 <?php
+ header("Access-Control-Allow-Origin: *");
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -103,7 +104,7 @@ if($path == "login"){
 if($path == "register"){
     $registerGate = new RegisterGateway($database);
     $registerController = new RegisterController($registerGate, $requestBody);
-    $registerController->processRequest($para["username"], $para["password"], $para["confirm"]);
+    $registerController->processRequest($requestBody->Username, $requestBody->Password, $requestBody->Confirm);
     exit;
 }   
 
