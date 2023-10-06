@@ -28,13 +28,19 @@ class RegisterGateway {
         if(empty($username) || empty($password)) {
            echo json_encode("Please enter a username and password");
         }
-        else if(!usernameTaken($username)){
+        else if(!$this->usernameTaken($username)){
             $sql = "INSERT INTO users (Username, Password) VALUES (:username, :password);";
 
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(":username", $username);
             $stmt->bindParam(":password", $password);
             $stmt->execute();
+
+            $sql2 = "SELECT UserId, Username FROM users WHERE Username = :username;";
+
+            $stmt2 = $this->conn->prepare($sql);
+            $stmt2->bindParam(":username", $username);
+            return ($stmt->fetch(PDO::FETCH_ASSOC));
         }
         else {
             //this needs to be changed
