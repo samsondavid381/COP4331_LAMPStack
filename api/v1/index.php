@@ -89,7 +89,7 @@ if($path == "login"){
     $loginController = new LoginController($loginGate, $requestBody);
     $user = $loginController->processRequest($id, $para['password']);
 
-    if(empty($user)) {
+    if($user == null) {
         echo json_encode("No Account matches username and password");
     }
     else {
@@ -104,7 +104,9 @@ if($path == "login"){
 if($path == "register"){
     $registerGate = new RegisterGateway($database);
     $registerController = new RegisterController($registerGate, $requestBody);
-    $registerController->processRequest($requestBody->Username, $requestBody->Password, $requestBody->Confirm);
+    $user = $registerController->processRequest($requestBody->Username, $requestBody->Password, $requestBody->Confirm);
+    json_encode($user);
+    
     exit;
 }   
 
