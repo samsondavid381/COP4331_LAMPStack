@@ -26,7 +26,6 @@ function populateTable(contacts) {
             lastNameCell.textContent = contact.last_name;
             phoneCell.textContent = contact.phone;
             emailCell.textContent = contact.email;
-            addressCell.textContent = contact.address;
             row.addEventListener('click', () => {
                 showUser(); 
                 showBlur(); 
