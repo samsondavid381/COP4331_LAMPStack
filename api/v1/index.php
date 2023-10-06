@@ -106,6 +106,8 @@ if($path == "register"){
     $registerController = new RegisterController($registerGate, $requestBody);
     $user = $registerController->processRequest($requestBody->Username, $requestBody->Password, $requestBody->Confirm);
     json_encode($user);
+    require_once "src/Config_Session.php";
+    $_SESSION["user"] = $user;
     
     exit;
 }   
