@@ -42,13 +42,13 @@
                         <form onsubmit="return validateRegistrationForm(); return false;" method="post" id="register-form">
                             <h1 >Register</h1>
                             <div>
-                                <input type="text" name="username" placeholder="Username">
+                                <input type="text" name="username" id="reg-username" placeholder="Username">
                             </div>
                             <div>
-                                <input type="text" name="password" placeholder="Password">
+                                <input type="text" name="password" id="reg-password" placeholder="Password">
                             </div>
                             <div>
-                                <input type="text" name="confirm" placeholder="Confirm Password">
+                                <input type="text" name="confirm" id="reg-confirm" placeholder="Confirm Password">
                             </div>
                             <input type="submit" value="Submit" name="register_Button">
                             <p style="color:red;" id="regResultMessage"></p>
