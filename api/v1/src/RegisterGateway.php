@@ -36,11 +36,12 @@ class RegisterGateway {
             $stmt->bindParam(":password", $password);
             $stmt->execute();
 
-            $sql2 = "SELECT UserId, Username FROM users WHERE Username = :username;";
-
-            $stmt2 = $this->conn->prepare($sql);
-            $stmt2->bindParam(":username", $username);
-            return ($stmt->fetch(PDO::FETCH_ASSOC));
+            $sql = "SELECT UserId, Username FROM users WHERE username = :username";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindValue(":username", $username, PDO::PARAM_INT);
+            $stmt->execute();
+            $data = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $data;
         }
         else {
             //this needs to be changed
