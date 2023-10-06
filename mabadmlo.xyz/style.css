@@ -27,26 +27,37 @@ body {
     font-size: 18px;
   }
 
-  .table tr:hover {
-    transition:0.2s;
-    background-color:darkgray;
-  }
   .card-container {
-    width: 360px;
+    width: 100%;
     padding: 5% 0 0;
     margin: auto;
   }
   .userCard {
-    position:relative;
-    z-index: 3;
+    position:absolute;
+    z-index: 1;
     margin:0 auto;
     background:#FFFFFF;
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     border-radius: 10px;
-    max-width:360px;
+    min-width: fit-content;
+    font-size:30px;
+
     
   }
+  .cardButton {
+    position:sticky;
+    z-index: 1;
+    background: #FFFFFF;
+    margin:2% 2% 0% 0%;
+    padding: 8px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    border-radius: 10px;
+    border:none;
+
+  }
+
 
   .form-container {
     width: 360px;
@@ -102,7 +113,7 @@ body {
     width:auto;
     border: 0;
     border-radius: 10px;
-    margin: 0 0 15px 0;
+    margin: 0 2% 2% 0;
     padding:8px;
     box-sizing: border-box;
     font-size: 14px;
@@ -145,6 +156,7 @@ body {
     cursor:pointer;
     text-decoration: none;
     color:black;
+    z-index: 4;
   }
   
   .openbtn {

@@ -11,6 +11,7 @@ function validateLoginForm() {
     .then(response => {
         if (response.ok) {
             window.location.href = "home.html";
+            setcookie("id",response[1]);
         } else {
             document.getElementById("resultMessage").innerHTML = "Username or password incorrect :( Try again";
         }
