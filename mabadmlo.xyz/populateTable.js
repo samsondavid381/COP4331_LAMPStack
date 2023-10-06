@@ -22,10 +22,10 @@ function populateTable(contacts) {
         const phoneCell = row.insertCell(2);
         const emailCell = row.insertCell(3);
           
-            firstNameCell.textContent = contact.first_name;
-            lastNameCell.textContent = contact.last_name;
-            phoneCell.textContent = contact.phone;
-            emailCell.textContent = contact.email;
+            firstNameCell.textContent = contact.FirstName;
+            lastNameCell.textContent = contact.LastName;
+            phoneCell.textContent = contact.PrimaryPhone;
+            emailCell.textContent = contact.PrimaryEmail;
             row.addEventListener('click', () => {
                 showUser(contact); 
                 showBlur(); 
