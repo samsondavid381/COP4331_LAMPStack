@@ -31,14 +31,21 @@ body {
     transition:0.2s;
     background-color:darkgray;
   }
-  
+  .card-container {
+    width: 360px;
+    padding: 5% 0 0;
+    margin: auto;
+  }
   .userCard {
+    position:relative;
+    z-index: 3;
     margin:0 auto;
     background:#FFFFFF;
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     border-radius: 10px;
-    z-index: 3;
+    max-width:360px;
+    
   }
 
   .form-container {

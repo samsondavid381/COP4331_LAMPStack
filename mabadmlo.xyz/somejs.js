@@ -18,15 +18,9 @@ function closeNav() {
   }
 function showBlur(){
   document.getElementById("blurContainer").style.background="rgba(0,0,0,0.75)";
-  document.getElementById("blurContainer").style.zIndex="2"
+  document.getElementById("blurContainer").style.zIndex="1"
 }
 function hideBlur(){
   document.getElementById("blurContainer").style.background="rgba(0,0,0,0)";
   document.getElementById("blurContainer").style.zIndex="-1"
-}
-function showUser(){
-  document.getElementById("userCard").style.display="block"
-}
-function hideUser(){
-  document.getElementById("userCard").style.display="none"
 }

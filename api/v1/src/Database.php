@@ -5,9 +5,7 @@ class Database
                                 private string $name,
                                 private string $user,
                                 private string $password)
-    {
-
-    }
+    {}
 
     public function getConnection():PDO
     {
@@ -15,3 +13,4 @@ class Database
         return new PDO ($dsn, $this->user, $this->password);
     }
 }
+?>
