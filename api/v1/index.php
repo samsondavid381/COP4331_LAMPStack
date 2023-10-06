@@ -91,6 +91,7 @@ if($path == "login"){
 
     if($user == null) {
         echo json_encode("No Account matches username and password");
+        http_response_code (404);
     }
     else {
         require_once "src/Config_Session.php";
@@ -111,7 +112,6 @@ if($path == "register"){
     
     exit;
 }   
-
 http_response_code(404);
 exit;
 ?>
