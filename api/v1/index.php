@@ -96,8 +96,8 @@ if($path == "login"){
     else {
         require_once "src/Config_Session.php";
         $_SESSION["user"] = $user;
-        setcookie("userID", $user["userID"], time() + (86400), "/");
-        setcookie("username", $user["username"], time() + (86400), "/");
+
+        header("Content-Type: application/json");
 
         echo json_encode($user);
     }
@@ -108,12 +108,12 @@ if($path == "register"){
     $registerGate = new RegisterGateway($database);
     $registerController = new RegisterController($registerGate, $requestBody);
     $user = $registerController->processRequest($requestBody->Username, $requestBody->Password, $requestBody->Confirm);
-    echo json_encode($user);
     require_once "src/Config_Session.php";
     $_SESSION["user"] = $user;
-    setcookie("userID", $user["userID"], time() + (86400), "/");
-    setcookie("username", $user["username"], time() + (86400), "/");
-    
+
+    header("Content-Type: application/json");
+
+    echo json_encode($user);
     exit;
 }   
 http_response_code(404);
