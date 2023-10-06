@@ -2,7 +2,7 @@ function validateRegistrationForm() {
     var registerUsername = document.getElementById("reg-username").value;
     var registerPassword = document.getElementById("reg-password").value;
     var confirmPassword = document.getElementById("reg-confirm").value;
-    var apiUrl = "https://api.mabadmlo.xyz/v1/register";
+    var apiUrl = "http://api.mabadmlo.xyz/v1/register";
     var data = {
         username: registerUsername,
         password: registerPassword,

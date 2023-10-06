@@ -2,7 +2,7 @@
 function validateLoginForm() {
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
-    var apiUrl = "https://api.mabadmlo.xyz/v1/login/" + username + "?password=" + password;
+    var apiUrl = "http://api.mabadmlo.xyz/v1/login/" + username + "?password=" + password;
     console.log(apiUrl);
     
     fetch(apiUrl, {
