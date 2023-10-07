@@ -1,4 +1,3 @@
-
 function validateLoginForm() {
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
@@ -10,11 +9,15 @@ function validateLoginForm() {
     })
     .then(response => {
         if (response.ok) {
-            window.location.href = "home.html";
-            setcookie("id",response[1]);
+            return response.json();
         } else {
             document.getElementById("resultMessage").innerHTML = "Username or password incorrect :( Try again";
+            throw new Error("Authentication failed");
         }
+    })
+    .then(data => {
+        document.cookie = "userId=" + data.userId;
+        window.location.href = "home.html";
     })
     .catch(error => {
         console.error(error);

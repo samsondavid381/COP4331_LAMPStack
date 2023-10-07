@@ -1,5 +1,6 @@
 
 function populateTableForUser(userId) {
+    
     apiUrl='http://api.mabadmlo.xyz/v1/contacts/'+userId;
     console.log(apiUrl);
     fetch(apiUrl)
