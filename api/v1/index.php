@@ -1,4 +1,10 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 $components = explode("/", $_SERVER["REQUEST_URI"]);
 $root = 3; //2 for deployment 3 for testing.
 $path = $components[$root]; 
@@ -79,27 +85,37 @@ if($path == "contacts"){
 }
 
 if($path == "login"){
-    $loginGate = new LoginGateway($databse);
+    $loginGate = new LoginGateway($database);
     $loginController = new LoginController($loginGate, $requestBody);
-    $user = $loginController->processRequest($_POST["username"], $_POST["password"]);
+    $user = $loginController->processRequest($id, $para['password']);
 
-    if(empty($user)) {
+    if($user == null) {
         echo json_encode("No Account matches username and password");
+        http_response_code (404);
     }
     else {
+        require_once "src/Config_Session.php";
+        $_SESSION["user"] = $user;
+
+        header("Content-Type: application/json");
+
         echo json_encode($user);
     }
-        
     exit;
 }
 
 if($path == "register"){
     $registerGate = new RegisterGateway($database);
     $registerController = new RegisterController($registerGate, $requestBody);
-    $registerController->processRequest($_POST["username"], $_POST["password"], $_POST["confirm"]);
+    $user = $registerController->processRequest($requestBody->Username, $requestBody->Password, $requestBody->Confirm);
+    require_once "src/Config_Session.php";
+    $_SESSION["user"] = $user;
+
+    header("Content-Type: application/json");
+
+    echo json_encode($user);
     exit;
 }   
-
 http_response_code(404);
 exit;
 ?>

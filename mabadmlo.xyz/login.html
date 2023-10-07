@@ -7,6 +7,8 @@
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <script type="text/javascript" src="somejs.js"></script>
+            <script type="text/javascript" src="login.js"></script>
+            <script type="text/javascript" src="register.js"></script>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         </head>
         <body onload="hideForm('register-form')">
@@ -19,16 +21,16 @@
             <div class="container">
                 <div class="form-container">
                     <div class="form">
-
-                        <form method="post" action="login.php" id="login-form">
+                        <form method="post" action = "javascript:;" onsubmit="validateLoginForm()" id="login-form">
                             <h1 >Login</h1>
                             <div>
-                                <input type="text" name="username" placeholder="Username">
+                                <input type="text" id ="username" name="username" placeholder="Username">
                             </div>
                             <div>
-                                <input type="text" name="password" placeholder="Password">
+                                <input type="text" id="password" name="password" placeholder="Password">
                             </div>
-                            <input type="submit" value="Submit" name="login_Button">
+                            <input type="submit" value="Submit" name="loginButton">
+                            <p style="color:red;" id="resultMessage"></p>
                             <div>
                                 Don't have an account?
                             </br>
@@ -36,18 +38,19 @@
                             </div>
                         </form>
 
-                        <form method="post" action="register.php" id="register-form">
+                        <form onsubmit="return validateRegistrationForm(); return false;" method="post" id="register-form">
                             <h1 >Register</h1>
                             <div>
-                                <input type="text" name="username" placeholder="Username">
+                                <input type="text" name="username" id="reg-username" placeholder="Username">
                             </div>
                             <div>
-                                <input type="text" name="password" placeholder="Password">
+                                <input type="text" name="password" id="reg-password" placeholder="Password">
                             </div>
                             <div>
-                                <input type="text" name="confirm" placeholder="Confirm Password">
+                                <input type="text" name="confirm" id="reg-confirm" placeholder="Confirm Password">
                             </div>
                             <input type="submit" value="Submit" name="register_Button">
+                            <p style="color:red;" id="regResultMessage"></p>
                             <div>
                                 Already have an account?
                             </br>
