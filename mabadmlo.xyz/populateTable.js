@@ -38,7 +38,7 @@ function populateTable(contacts) {
 
 function getCookieValue()
     {
-      const regex = new RegExp(`(^| )$user=([^;]+)`)
+      const regex = new RegExp(`(^| )$userId=([^;]+)`)
       const match = document.cookie.match(regex)
       if (match) {
         console.log(match[2]);
