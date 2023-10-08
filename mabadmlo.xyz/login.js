@@ -9,16 +9,14 @@ function validateLoginForm() {
     })
     .then(response => {
         if (response.ok) {
-            var resjson = response.json();
-            console.log(resjson);
-            return resjson;
+            return response.json();;
         } else {
             document.getElementById("resultMessage").innerHTML = "Username or password incorrect :( Try again";
             throw new Error("Authentication failed");
         }
     })
     .then(data => {
-        document.cookie = "userId=" + data.UserId;
+        //document.cookie = "userId=" + data.UserId;
         window.location.href = "home.html";
     })
     .catch(error => {

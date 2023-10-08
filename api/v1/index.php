@@ -98,7 +98,6 @@ if($path == "login"){
         $_SESSION["user"] = $user;
         setcookie("userId", $user["UserId"]);
         header("Content-Type: application/json");
-
         echo json_encode($user);
     }
     exit;
