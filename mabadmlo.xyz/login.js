@@ -18,7 +18,7 @@ function validateLoginForm() {
         }
     })
     .then(data => {
-        document.cookie = "userId=" + data.userId;
+        document.cookie = "userId=" + data.UserId;
         window.location.href = "home.html";
     })
     .catch(error => {
