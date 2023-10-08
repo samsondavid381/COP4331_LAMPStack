@@ -1,4 +1,5 @@
 function editRow(e, userId) {
+    userId = getCookie('userId');
     apiURL='http://api.mabadmlo.xyz/v1/contacts/'+userId;
     fetch(userId, {
         method: 'POST',

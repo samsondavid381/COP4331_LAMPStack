@@ -21,6 +21,6 @@ function validateLoginForm() {
     })
     .catch(error => {
         console.error(error);
-        document.getElementById("resultMessage").innerHTML = "ERROR! :( ";
+        document.getElementById("resultMessage").innerHTML = "Seems that didn't work. Try again.";
     });
 }

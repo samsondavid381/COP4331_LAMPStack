@@ -1,6 +1,6 @@
 
-function populateTableForUser(userId) {
-    
+function populateTableForUser() {
+    var userId = getCookie('userId');
     apiUrl='http://api.mabadmlo.xyz/v1/contacts/'+userId;
     console.log(apiUrl);
     fetch(apiUrl)
@@ -30,32 +30,19 @@ function populateTable(contacts) {
         row.addEventListener('click', () => {
             showUser(contact); 
             showBlur(); 
-            foo();
+            document.getElementById('userCard').addEventListener('click',() => {
+                hideUser();
+                hideBlur();
+            });
         });
     });
     
 }
-
-function getCookie(cname) {
-    let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for(let i = 0; i <ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
-  }
-
 function showUser(contact){
     const userCard = document.getElementById("userCard");
     userCard.style.display="block";
     userCard.innerHTML = contact.FirstName + '<br>' + contact.LastName + '<br>' + contact.PrimaryPhone + '<br>' + contact.PrimaryEmail;
+
     
     document.getElementById("cardDelButton").style.display="inline-block"
     document.getElementById("cardUpdButton").style.display="inline-block"
@@ -64,14 +51,5 @@ function hideUser(){
     document.getElementById("userCard").style.display="none"
     document.getElementById("cardDelButton").style.display="none"
     document.getElementById("cardUpdButton").style.display="none"
-}
-
-function foo(){
-    window.addEventListener('click', function(e){   
-        if (document.getElementById('userCard').contains(e.target)){
-          hideUser();
-          hideBlur();
-        }
-      });
 }
           
