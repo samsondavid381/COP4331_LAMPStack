@@ -9,8 +9,9 @@ function validateLoginForm() {
     })
     .then(response => {
         if (response.ok) {
-            console.log(response.json());
-            return response.json();
+            var resjson = response.json();
+            console.log(resjson);
+            return resjson;
         } else {
             document.getElementById("resultMessage").innerHTML = "Username or password incorrect :( Try again";
             throw new Error("Authentication failed");
