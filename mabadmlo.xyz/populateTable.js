@@ -36,6 +36,15 @@ function populateTable(contacts) {
     
 }
 
+function getCookieValue()
+    {
+      const regex = new RegExp(`(^| )$user=([^;]+)`)
+      const match = document.cookie.match(regex)
+      if (match) {
+        return match[2]
+      }
+   }
+
 function showUser(contact){
     const userCard = document.getElementById("userCard");
     userCard.style.display="block";
