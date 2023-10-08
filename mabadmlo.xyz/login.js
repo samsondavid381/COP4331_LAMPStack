@@ -9,6 +9,7 @@ function validateLoginForm() {
     })
     .then(response => {
         if (response.ok) {
+            console.log(response.json());
             return response.json();
         } else {
             document.getElementById("resultMessage").innerHTML = "Username or password incorrect :( Try again";
