@@ -1,29 +1,29 @@
-function editRow(e, userId) {
-    userId = getCookie('userId');
-    apiURL='http://api.mabadmlo.xyz/v1/contacts/'+userId;
-    fetch(userId, {
-        method: 'POST',
-    })
-    .then(response => {
-        if (response.ok) {
 
-            target=e.target;
-            if(target.classList.contains("edit")){
-                currentRow=target.parentElement.parentElement;
-                document.getElementById("First").value=currentRow.children[0].textContent;
-                document.getElementById("Last").value=currentRow.children[1].textContent;
-                document.getElementById("Phone").value=currentRow.children[2].textContent;
-                document.getElementById("Email").value=currentRow.children[3].textContent;
-            }
-           
-           // const table = document.getElementById('contactsTableBody');
-            
-            console.log('Data edited');
-        } else {
-            console.error('Error');
-        }
-    })
-    .catch(error => console.error('Error:', error));
+function editContact(){
 
+
+    const firstName = document.getElementById('firstname').value;
+    const lastName = document.getElementById('lastname').value;
+    const phone = document.getElementById('phone').value;
+    const email = document.getElementById('email').value;
+    const userData = {
+            FirstName: firstName,
+            LastName: lastName,
+            PrimaryPhone: phone,
+            PrimaryEmail: email
+        };
+    const userId = getCookie('userId');
+    const apiUrl = `http://api.mabadmlo.xyz/v1/contacts/${userId}`;
+
+    fetch(apiUrl, {
+    method: 'PATCH',
+    body: JSON.stringify(userData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Contact edited successfully:', data);
+        })
+        .catch(error => {
+            console.error('Error editing contact:', error);
+        });
 }
-//once i click edit, a window pops up, with the table already filled, once i hit confirm it updates
