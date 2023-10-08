@@ -17,7 +17,9 @@ function getCookie(cname) {
 function validateUserId() {
     const userId = getCookie("userId");
 
-    if (userId === null|| isNaN(userId) || parseInt(userId) < 1) {
+    if (userId === null|| isNaN(userId) || parseInt(userId) <1) {
         window.location.href = "login.html";
+       
     }
+    document.getElementById("header").innerHTML = userId;
 }

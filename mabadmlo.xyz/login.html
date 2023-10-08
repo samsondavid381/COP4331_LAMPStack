@@ -38,7 +38,7 @@
                             </div>
                         </form>
 
-                        <form onsubmit="return validateRegistrationForm(); return false;" method="post" id="register-form">
+                        <form method="post" action="javascript:;" onsubmit="validateRegistrationForm();" id="register-form">
                             <h1 >Register</h1>
                             <div>
                                 <input type="text" name="username" id="reg-username" placeholder="Username">
@@ -50,7 +50,7 @@
                                 <input type="text" name="confirm" id="reg-confirm" placeholder="Confirm Password">
                             </div>
                             <input type="submit" value="Submit" name="register_Button">
-                            <p style="color:red;" id="regResultMessage"></p>
+                            <p id="regResultMessage"></p>
                             <div>
                                 Already have an account?
                             </br>
