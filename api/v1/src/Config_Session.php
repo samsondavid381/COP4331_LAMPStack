@@ -4,12 +4,11 @@ ini_set("session.use_only_cookies", 1);
 ini_set("session.use_strict_mode", 1);
 
 session_set_cookie_params([
-    'lifetime' => 1800,
-    'domain' => "localhost",
+    'lifetime' => 0,
+    'domain' => "www.mabadmlo.xyz",
     'path' => "/",
-    'secure' => true,
-    'httponly' => true,
-    'samesite' => 'lax'
+    'secure' => false,
+    'httponly' => false
 ]);
 
 session_start();
