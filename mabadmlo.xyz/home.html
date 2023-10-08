@@ -9,7 +9,7 @@
     <script type="text/javascript" src="somejs.js"></script>
     <script type="text/javascript" src="populateTable.js"></script>
     <script type="text/javascript" src="search.js"></script>
-
+    <script type="text/javascript" src="addcontact.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 	</head>
   <body onload="var id = '<?php echo $userID;?>';populateTableForUser(id);">
@@ -27,16 +27,16 @@
                   <a class="closebtn" onclick="hideForm('add-form');hideBlur();">&times;</a>
                     <h1>Add Contact</h1>
                     <div>
-                        <input type="text" placeholder="First name">
+                        <input type="text" id="firstname" placeholder="First name">
                     </div>
                     <div>
-                        <input type="text" placeholder="Last name">
+                        <input type="text" id="lastname" placeholder="Last name">
                     </div>
                     <div>
-                        <input type="text" placeholder="Phone">
+                        <input type="text" id="phone" placeholder="Phone">
                     </div>
                     <div>
-                        <input type="text" placeholder="Email">
+                        <input type="text" id="email" placeholder="Email">
                     </div>
                         <input onclick="hideForm('add-form');hideBlur();"type="submit" href=""  value="Submit">
                     </br>
