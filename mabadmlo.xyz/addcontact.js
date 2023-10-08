@@ -1,5 +1,5 @@
 
-    document.getElementById('contact-form').addEventListener('submit', function (e) {
+    function add_contact(){
         const firstName = document.getElementById('firstname').value;
         const lastName = document.getElementById('lastname').value;
         const phone = document.getElementById('phone').value;
@@ -28,5 +28,5 @@
             // Handle errors here (e.g., show an error message)
             console.error('Error adding contact:', error);
         });
-    });
+    }
 

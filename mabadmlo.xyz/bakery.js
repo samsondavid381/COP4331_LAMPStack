@@ -8,6 +8,7 @@ function getCookie(cname) {
         c = c.substring(1);
       }
       if (c.indexOf(name) == 0) {
+        console.log(c.substring(name.length, c.length));
         return c.substring(name.length, c.length);
       }
     }
@@ -19,7 +20,6 @@ function validateUserId() {
 
     if (userId === null|| isNaN(userId) || parseInt(userId) <1) {
         window.location.href = "login.html";
-       
     }
-    document.getElementById("header").innerHTML = userId;
+    //document.getElementById("header").innerHTML = userId;
 }
