@@ -94,8 +94,7 @@ if($path == "login"){
         http_response_code (404);
     }
     else {
-        require_once "src/Config_Session.php";
-        setcookie("userId", $user["UserId"], time() + 3600, '/');
+        setcookie("userId", $user["UserId"], time() + 3600, '/', "www.mabadmlo.xyz", false, false);
         header("Content-Type: application/json");
         echo json_encode($user);
     }
@@ -106,8 +105,6 @@ if($path == "register"){
     $registerGate = new RegisterGateway($database);
     $registerController = new RegisterController($registerGate, $requestBody);
     $user = $registerController->processRequest($requestBody->Username, $requestBody->Password, $requestBody->Confirm);
-    require_once "src/Config_Session.php";
-    $_SESSION["user"] = $user;
 
     header("Content-Type: application/json");
 
