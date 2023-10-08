@@ -1,21 +1,19 @@
-document.getElementById('cardDelButton').addEventListener('submit', function (e) {
-    const userId =  getCookie('userId');
-    const apiUrl = `http://api.mabadmlo.xyz/v1/contacts/${userId}`;
-
-    fetch(apiUrl, {
+function deleteRow() {
+    apiURL='http://api.mabadmlo.xyz/v1/contacts/'+userId;
+    fetch(userId, {
         method: 'DELETE',
     })
-    .then(response => response.json())
-    .then(data => {
-        const table = document.getElementById('contactsTableBody');
-        const deleteButton = e.target;
-        deleteButton.closest("tr").remove();
+    .then(response => {
+        if (response.ok) {
+            // Remove the row from the table upon successful deletion
+            //const table = document.getElementById('contactsTableBody');
+            //const deleteButton = e.target;
+            //deleteButton.closest("tr").remove();
 
-        console.log('Contact deleted:', data);
+            console.log('Data removed');
+        } else {
+            console.error('Error');
+        }
     })
-    .catch(error => {
-        // Handle errors here (e.g., show an error message)
-        console.error('Error:', error);
-    });
-
-});
+    .catch(error => console.error('Error:', error));
+}
