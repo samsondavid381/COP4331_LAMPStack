@@ -41,6 +41,7 @@ function getCookieValue()
       const regex = new RegExp(`(^| )$user=([^;]+)`)
       const match = document.cookie.match(regex)
       if (match) {
+        console.log(match[2]);
         return match[2]
       }
    }
