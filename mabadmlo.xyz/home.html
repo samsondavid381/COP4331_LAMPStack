@@ -25,6 +25,7 @@
     <button class="openbtn" onclick="openNav()">&#9776;</button>
     <div class="container">
           <div class="form-container" style="margin:0 auto; padding:25px;position:absolute">
+
             <div class="form" id="add-form" style="display:none;">
                 <form method="" action="" id="add-form">
                   <a class="closebtn" onclick="hideForm('add-form');hideBlur();">&times;</a>
@@ -36,7 +37,7 @@
                         <input type="text" id="lastname" placeholder="Last name">
                     </div>
                     <div>
-                        <input type="text" id="phoneNumber" placeholder="Phone" oninput="formatPhoneNumber(this);">
+                        <input type="tel" id="phoneNumber" placeholder="Phone">
                     </div>
                     <div>
                         <input type="text" id="email" placeholder="Email">
@@ -45,13 +46,35 @@
                     </br>
                 </form>
               </div> <!--FORM-->
+
+              <div class="form" id="update-form" style="display:none;">
+                <form method="" action="" id="update-form">
+                  <a class="closebtn" onclick="hideForm('update-form');hideBlur();">&times;</a>
+                    <h1>Update Contact</h1>
+                    <div>
+                        <input type="text" id="firstname" placeholder="First name">
+                    </div>
+                    <div>
+                        <input type="text" id="lastname" placeholder="Last name">
+                    </div>
+                    <div>
+                        <input type="tel" id="phoneNumber" placeholder="Phone">
+                    </div>
+                    <div>
+                        <input type="text" id="email" placeholder="Email">
+                    </div>
+                        <input onclick="editContact();hideForm('update-form');hideForm('userCard');hideBlur();"type="submit" href=""  value="Submit">
+                    </br>
+                </form>
+              </div> <!--FORM-->
+
         </div> <!--FORM-Container-->
         
             <h1 id="header">Your Contacts</h1>
             <button onclick="showForm('add-form');showBlur();" class ='button' style='display:inline-block;font-size:15px;' id="add-button">Add</button>
             <input id="search-input" oninput="searchContacts();"class ='search' style='display:inline-block;font-size:15px;'type="text" placeholder="Search"></input> <!--Phone number needs to be in (123)-123-1234 format before getting send as request-->
-            <button id="cardDelButton" class ='cardButton' style='color:red;display:none;font-size:15px;'>Delete</button>
-            <button id="cardUpdButton" class ='cardButton' style='display:none;font-size:15px;'>Update</button>
+            <button id="cardDelButton" onclick="deleteRow()" class ='cardButton' style='color:red;display:none;font-size:15px;'>Delete</button>
+            <button id="cardUpdButton" onclick="showForm('update-form');showBlur();" class ='cardButton' style='display:none;font-size:15px;'>Update</button>
             <div class="userCard" id="userCard" style="display:none;text-align: center;"></div>
   
             <table class="table" style="position:relative; max-width:75%;" id="contacts-table">
