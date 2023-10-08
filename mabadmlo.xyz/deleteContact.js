@@ -1,5 +1,5 @@
 document.getElementById('cardDelButton').addEventListener('submit', function (e) {
-    const userId = '<?php echo $userID;?>';
+    const userId =  getCookie('userId');
     const apiUrl = `http://api.mabadmlo.xyz/v1/contacts/${userId}`;
 
     fetch(apiUrl, {
