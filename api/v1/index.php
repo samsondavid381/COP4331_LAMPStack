@@ -95,7 +95,6 @@ if($path == "login"){
     }
     else {
         require_once "src/Config_Session.php";
-        $_SESSION["user"] = $user;
         setcookie("userId", $user["UserId"], time() + 3600, '/');
         header("Content-Type: application/json");
         echo json_encode($user);
