@@ -5,7 +5,7 @@ class ContactController
     public function __construct(private ContactGateway $gateway)
     {}
     
-    public function processRequest(string $method, int $uid, object $para, object $requestBody) : void
+    public function processRequest(string $method, ?int $uid, object $para, object $requestBody) : void
     {
         if($uid){
             $contactList = $this->gateway->getContacts($uid, $para);
