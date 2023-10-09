@@ -10,6 +10,20 @@ $root = 3; //2 for deployment 3 for testing.
 $path = $components[$root]; 
 $componentLen = count($components);
 
+if($_SERVER["REQUEST_METHOD"] == "OPTIONS"){
+    $res = $app->response;
+
+    $res->headers->set('Content-Type', 'application/json');
+    $res->headers->set('Access-Control-Allow-Origin', 'http://example.com');
+    $res->headers->set('Access-Control-Allow-Credentials', 'true');
+    $res->headers->set('Access-Control-Max-Age', '60');
+    $res->headers->set('Access-Control-Allow-Headers', 'AccountKey,x-requested-with, Content-Type, origin, authorization, accept, client-security-token, host, date, cookie, cookie2');
+    $res->headers->set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+
+    return $res;
+    exit;
+}
+
 if($path == null){
     print("Welcome to the API Root Directory!");
     exit;
