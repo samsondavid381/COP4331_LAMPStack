@@ -63,7 +63,7 @@
                     <div>
                         <input type="text" id="upd_email" placeholder="Email">
                     </div>
-                        <input onclick="editContact(contactid);hideForm('update-form');hideForm('userCard');hideBlur();"type="submit" href=""  value="Submit">
+                        <input onclick="editContact(getCookie('contactid'));hideForm('update-form');hideForm('userCard');hideBlur();"type="submit" href=""  value="Submit">
                     </br>
                 </form>
               </div> <!--FORM-->
@@ -73,7 +73,7 @@
             <h1 id="header">Your Contacts</h1>
             <button onclick="showForm('add-form');showBlur();" class ='button' style='display:inline-block;font-size:15px;' id="add-button">Add</button>
             <input id="search-input" oninput="searchContacts();"class ='search' style='display:inline-block;font-size:15px;'type="text" placeholder="Search"></input> <!--Phone number needs to be in (123)-123-1234 format before getting send as request-->
-            <button id="cardDelButton" onclick="deleteRow(contactid)" class ='cardButton' style='color:red;display:none;font-size:15px;'>Delete</button>
+            <button id="cardDelButton" onclick="deleteRow(getCookie('contactid'))" class ='cardButton' style='color:red;display:none;font-size:15px;'>Delete</button>
             <button id="cardUpdButton" onclick="showForm('update-form');showBlur();" class ='cardButton' style='display:none;font-size:15px;'>Update</button>
             <div class="userCard" id="userCard" style="display:none;text-align: center;"></div>
   
