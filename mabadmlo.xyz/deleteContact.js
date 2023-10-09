@@ -1,19 +1,25 @@
-function deleteRow() {
-    apiURL='http://api.mabadmlo.xyz/v1/contacts/'+userId;
-    fetch(userId, {
-        method: 'DELETE',
-    })
-    .then(response => {
-        if (response.ok) {
-            // Remove the row from the table upon successful deletion
-            //const table = document.getElementById('contactsTableBody');
-            //const deleteButton = e.target;
-            //deleteButton.closest("tr").remove();
+function deleteRow(){
 
-            console.log('Data removed');
-        } else {
-            console.error('Error');
-        }
-    })
-    .catch(error => console.error('Error:', error));
+
+    const firstName = document.getElementById('firstname').value;
+    const lastName = document.getElementById('lastname').value;
+    const phone = document.getElementById('phone').value;
+    const email = document.getElementById('email').value;
+    const userData = {
+            UserId:-1
+        };
+    const userId = getCookie('userId');
+    const apiUrl = `http://api.mabadmlo.xyz/v1/contacts/${userId}`;
+
+    fetch(apiUrl, {
+    method: 'PUT',
+    body: JSON.stringify(userData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Contact edited successfully:', data);
+        })
+        .catch(error => {
+            console.error('Error editing contact:', error);
+        });
 }
