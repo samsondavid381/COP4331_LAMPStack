@@ -20,7 +20,8 @@ function editContact(contactid){
     method: 'PUT',
     body: JSON.stringify(userData),
     headers:{
-        'Access-Control-Allow-Origin' : "*"
+        'Access-Control-Allow-Origin' : "*",
+        'Access-Control-Allow-Methods' : "GET, POST, PUT, OPTIONS"
     }
         })
         .then(response => response.json())

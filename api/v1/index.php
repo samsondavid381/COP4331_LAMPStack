@@ -14,6 +14,8 @@ $path = $components[$root];
 $componentLen = count($components);
 
 if($_SERVER["REQUEST_METHOD"] == "OPTIONS"){
+    $res = $app->response;
+    $res.
     return $app->response;
     exit;
 }
