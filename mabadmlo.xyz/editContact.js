@@ -10,7 +10,8 @@ function editContact(contactid){
             FirstName: firstName,
             LastName: lastName,
             PrimaryPhone: phone,
-            PrimaryEmail: email
+            PrimaryEmail: email,
+            UserId : null
         };
     const userId = getCookie('userId');
     let apiUrl = "http://api.mabadmlo.xyz/v1/contacts/" + userId + "?contactid=" +contactid;
@@ -22,6 +23,7 @@ function editContact(contactid){
         .then(response => response.json())
         .then(data => {
             console.log('Contact edited successfully:', data);
+            document.location.reload();
         })
         .catch(error => {
             console.error('Error editing contact:', error);
