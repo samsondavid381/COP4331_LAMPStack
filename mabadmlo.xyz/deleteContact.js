@@ -1,5 +1,9 @@
 function deleteRow(contactid){
     const userData = {
+        FirstName: firstName,
+        LastName: lastName,
+        PrimaryPhone: phone,
+        PrimaryEmail: email,
             UserId:-1
         };
     const userId = getCookie('userId');

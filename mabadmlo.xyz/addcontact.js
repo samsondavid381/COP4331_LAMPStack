@@ -8,7 +8,8 @@ function add_contact(){
             FirstName: firstName,
             LastName: lastName,
             PrimaryPhone: phone,
-            PrimaryEmail: email
+            PrimaryEmail: email,
+            UserId : null
         };
     let userId = getCookie('userId');
     let apiUrl = 'http://api.mabadmlo.xyz/v1/contacts/' + userId;
