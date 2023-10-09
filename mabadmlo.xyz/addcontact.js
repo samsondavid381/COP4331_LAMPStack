@@ -2,7 +2,7 @@
 function add_contact(){
     const firstName = document.getElementById('firstname').value;
     const lastName = document.getElementById('lastname').value;
-    const phone = document.getElementById('phone').value;
+    const phone = document.getElementById('phoneNumber').value;
     const email = document.getElementById('email').value;
     const userData = {
             FirstName: firstName,
