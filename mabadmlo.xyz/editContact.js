@@ -2,10 +2,10 @@
 function editContact(){
 
 
-    const firstName = document.getElementById('firstname').value;
-    const lastName = document.getElementById('lastname').value;
-    const phone = document.getElementById('phone').value;
-    const email = document.getElementById('email').value;
+    const firstName = document.getElementById('upd_firstname').value;
+    const lastName = document.getElementById('upd_lastname').value;
+    const phone = document.getElementById('upd_phoneNumber').value;
+    const email = document.getElementById('upd_email').value;
     const userData = {
             FirstName: firstName,
             LastName: lastName,
