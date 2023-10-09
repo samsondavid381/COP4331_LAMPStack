@@ -18,17 +18,16 @@ function populateTable(contacts) {
     const tableBody = document.getElementById('contactsTableBody');
     contacts.forEach(contact => {
         const row = tableBody.insertRow();
-        const idCell = row.insertCell(0);
-        const firstNameCell = row.insertCell(1);
-        const lastNameCell = row.insertCell(2);
-        const phoneCell = row.insertCell(3);
-        const emailCell = row.insertCell(4);
-        idCell.textContent = contact.ContactId;
+        const firstNameCell = row.insertCell(0);
+        const lastNameCell = row.insertCell(1);
+        const phoneCell = row.insertCell(2);
+        const emailCell = row.insertCell(3);
         firstNameCell.textContent = contact.FirstName;
         lastNameCell.textContent = contact.LastName;
         phoneCell.textContent = contact.PrimaryPhone;
         emailCell.textContent = contact.PrimaryEmail;
         row.addEventListener('click', () => {
+            document.cookie = "contactid=" + contact.ContactId;
             showUser(contact); 
             showBlur(); 
             document.getElementById('userCard').addEventListener('click',() => {
@@ -43,11 +42,8 @@ function showUser(contact){
     const userCard = document.getElementById("userCard");
     userCard.style.display="block";
     userCard.innerHTML = contact.FirstName + '<br>' + contact.LastName + '<br>' + contact.PrimaryPhone + '<br>' + contact.PrimaryEmail;
-
-    
     document.getElementById("cardDelButton").style.display="inline-block"
     document.getElementById("cardUpdButton").style.display="inline-block"
-    let contactid = contact.ContactId;
 }
 function hideUser(){
     document.getElementById("userCard").style.display="none"
