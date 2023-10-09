@@ -22,6 +22,7 @@ function editContact(contactid){
         .then(response => response.json())
         .then(data => {
             console.log('Contact edited successfully:', data);
+            document.location.reload();
         })
         .catch(error => {
             console.error('Error editing contact:', error);
