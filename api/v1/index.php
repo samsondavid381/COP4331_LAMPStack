@@ -54,6 +54,7 @@ set_error_handler("ErrorHandler::handleError");
 set_exception_handler("ErrorHandler::handleException");
 
 header("Content-type: application/json; charset=UTF-8");
+header("Access-Control-Allow-Origin: *");
 
 $database = new Database($configs->host, "contact_manager", $configs->username, $configs->password);
 
