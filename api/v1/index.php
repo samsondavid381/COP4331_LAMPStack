@@ -1,5 +1,6 @@
 <?php
 header("Access-Control-Allow-Origin: *");
+header("Content-type: application/json; charset=UTF-8");
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -13,12 +14,8 @@ $componentLen = count($components);
 if($_SERVER["REQUEST_METHOD"] == "OPTIONS"){
     $res = $app->response;
 
-    $res->headers->set('Content-Type', 'application/json');
-    $res->headers->set('Access-Control-Allow-Origin', 'http://example.com');
-    $res->headers->set('Access-Control-Allow-Credentials', 'true');
-    $res->headers->set('Access-Control-Max-Age', '60');
-    $res->headers->set('Access-Control-Allow-Headers', 'AccountKey,x-requested-with, Content-Type, origin, authorization, accept, client-security-token, host, date, cookie, cookie2');
-    $res->headers->set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    $res->headers->set('Access-Control-Allow-Headers', 'AccountKey, x-requested-with, Content-Type, origin, authorization, accept, client-security-token, host, date, cookie, cookie2');
+    $res->headers->set('Access-Control-Allow-Methods', 'GET, POST, PUT, OPTIONS');
 
     return $res;
     exit;
@@ -66,9 +63,6 @@ spl_autoload_register(function($class){
 
 set_error_handler("ErrorHandler::handleError");
 set_exception_handler("ErrorHandler::handleException");
-
-header("Content-type: application/json; charset=UTF-8");
-header("Access-Control-Allow-Origin: *");
 
 $database = new Database($configs->host, "contact_manager", $configs->username, $configs->password);
 
