@@ -12,10 +12,11 @@ function add_contact(){
         };
     let userId = getCookie('userId');
     let apiUrl = 'http://api.mabadmlo.xyz/v1/contacts/' + userId;
-
+    body = JSON.stringify(userData);  
+    console.log(body);
     fetch(apiUrl, {
     method: 'POST',
-    body: JSON.stringify(userData)
+    body: body
         })
         .then(response => response.json())
         .then(data => {
