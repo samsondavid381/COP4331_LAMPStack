@@ -24,3 +24,9 @@ function hideBlur(){
   document.getElementById("blurContainer").style.background="rgba(0,0,0,0)";
   document.getElementById("blurContainer").style.zIndex="-1"
 }
+function deleteCookies() {
+  var Cookies = document.cookie.split(';');
+  for (var i = 0; i < Cookies.length; i++)
+  document.cookie = Cookies[i] + "=;expires=" + new Date(0).toUTCString();
+}
+
