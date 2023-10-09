@@ -18,7 +18,10 @@ function editContact(contactid){
 
     fetch(apiUrl, {
     method: 'PUT',
-    body: JSON.stringify(userData)
+    body: JSON.stringify(userData),
+    headers:{
+        'Access-Control-Allow-Origin' : "*"
+    }
         })
         .then(response => response.json())
         .then(data => {

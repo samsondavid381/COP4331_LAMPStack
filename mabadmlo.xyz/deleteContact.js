@@ -1,9 +1,9 @@
 function deleteRow(contactid){
     const userData = {
-        FirstName: firstName,
-        LastName: lastName,
-        PrimaryPhone: phone,
-        PrimaryEmail: email,
+        FirstName: null,
+        LastName: null,
+        PrimaryPhone: null,
+        PrimaryEmail: null,
             UserId:-1
         };
     const userId = getCookie('userId');
@@ -11,7 +11,10 @@ function deleteRow(contactid){
 
     fetch(apiUrl, {
     method: 'PUT',
-    body: JSON.stringify(userData)
+    body: JSON.stringify(userData),
+    headers:{
+        'Access-Control-Allow-Origin' : "*"
+    }
         })
         .then(response => response.json())
         .then(data => {
