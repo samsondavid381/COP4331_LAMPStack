@@ -18,11 +18,12 @@ function populateTable(contacts) {
     const tableBody = document.getElementById('contactsTableBody');
     contacts.forEach(contact => {
         const row = tableBody.insertRow();
-        const firstNameCell = row.insertCell(0);
-        const lastNameCell = row.insertCell(1);
-        const phoneCell = row.insertCell(2);
-        const emailCell = row.insertCell(3);
-          
+        const idCell = row.insertCell(0);
+        const firstNameCell = row.insertCell(1);
+        const lastNameCell = row.insertCell(2);
+        const phoneCell = row.insertCell(3);
+        const emailCell = row.insertCell(4);
+        idCell.textContent = contact.ContactId;
         firstNameCell.textContent = contact.FirstName;
         lastNameCell.textContent = contact.LastName;
         phoneCell.textContent = contact.PrimaryPhone;
@@ -46,6 +47,7 @@ function showUser(contact){
     
     document.getElementById("cardDelButton").style.display="inline-block"
     document.getElementById("cardUpdButton").style.display="inline-block"
+    let contactid = contact.ContactId;
 }
 function hideUser(){
     document.getElementById("userCard").style.display="none"

@@ -1,9 +1,9 @@
-function deleteRow(){
+function deleteRow(contactid){
     const userData = {
             UserId:-1
         };
     const userId = getCookie('userId');
-    let apiUrl = `http://api.mabadmlo.xyz/v1/contacts/` + userId;
+    let apiUrl = `http://api.mabadmlo.xyz/v1/contacts/` + userId+ "?contact=?"+contactid;
 
     fetch(apiUrl, {
     method: 'PUT',

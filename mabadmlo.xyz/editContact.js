@@ -1,5 +1,5 @@
 
-function editContact(){
+function editContact(contactid){
 
 
     const firstName = document.getElementById('upd_firstname').value;
@@ -13,7 +13,7 @@ function editContact(){
             PrimaryEmail: email
         };
     const userId = getCookie('userId');
-    let apiUrl = "http://api.mabadmlo.xyz/v1/contacts/" + userId;
+    let apiUrl = "http://api.mabadmlo.xyz/v1/contacts/" + userId + "?contactid=" +contactid;
 
     fetch(apiUrl, {
     method: 'PUT',
