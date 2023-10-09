@@ -1,10 +1,4 @@
 function deleteRow(){
-
-
-    const firstName = document.getElementById('firstname').value;
-    const lastName = document.getElementById('lastname').value;
-    const phone = document.getElementById('phone').value;
-    const email = document.getElementById('email').value;
     const userData = {
             UserId:-1
         };
