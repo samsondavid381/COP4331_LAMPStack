@@ -15,10 +15,10 @@ function getCookie(cname) {
     return "";
 }
 
-function validateUserId() {
-    const userId = getCookie("userId");
+function validateUserId(userId) {
+    const id = getCookie("userId");
 
-    if (userId === null|| isNaN(userId) || parseInt(userId) <1) {
+    if (id === null|| isNaN(id) || parseInt(id) <1 || id !== userId) {
         window.location.href = "login.html";
     }
     //document.getElementById("header").innerHTML = userId;
