@@ -16,7 +16,7 @@ function editContact(){
     const apiUrl = `http://api.mabadmlo.xyz/v1/contacts/${userId}`;
 
     fetch(apiUrl, {
-    method: 'PATCH',
+    method: 'PUT',
     body: JSON.stringify(userData)
         })
         .then(response => response.json())
