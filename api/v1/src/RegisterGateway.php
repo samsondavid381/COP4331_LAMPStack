@@ -18,7 +18,7 @@ class RegisterGateway {
         $stmt->execute();
 
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        if(empty($result)){
+        if($result == null){
             return false;
         }
         return true;

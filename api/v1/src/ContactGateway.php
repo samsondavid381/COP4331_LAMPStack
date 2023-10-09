@@ -7,7 +7,7 @@ class ContactGateway
         $this->conn = $database->getConnection();
     }
     
-    public function getContacts(int $id, object $para) : array | false
+    public function getContacts(?int $id, object $para) : array | false
     {
         $append = false;
         $cond = "";
