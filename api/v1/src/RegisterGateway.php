@@ -26,7 +26,8 @@ class RegisterGateway {
 
     public function addUser($username, $password) {
         if(empty($username) || empty($password)) {
-           echo json_encode("Please enter a username and password");
+            http_response_code(400);
+            echo json_encode("Please enter a username and password");
         }
         else if(!$this->usernameTaken($username)){
             $sql = "INSERT INTO users (Username, Password) VALUES (:username, :password);";
@@ -44,7 +45,7 @@ class RegisterGateway {
             return $data;
         }
         else {
-            //this needs to be changed
+            http_response_code(400);
             echo json_encode("Username taken!");
         }
     }
