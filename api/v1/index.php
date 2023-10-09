@@ -1,6 +1,8 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header("Content-type: application/json; charset=UTF-8");
+header('Access-Control-Allow-Headers', 'AccountKey, x-requested-with, Content-Type, origin, authorization, accept, client-security-token, host, date, cookie, cookie2');
+header('Access-Control-Allow-Methods', 'GET, POST, PUT, OPTIONS');
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -12,12 +14,7 @@ $path = $components[$root];
 $componentLen = count($components);
 
 if($_SERVER["REQUEST_METHOD"] == "OPTIONS"){
-    $res = $app->response;
-
-    $res->headers->set('Access-Control-Allow-Headers', 'AccountKey, x-requested-with, Content-Type, origin, authorization, accept, client-security-token, host, date, cookie, cookie2');
-    $res->headers->set('Access-Control-Allow-Methods', 'GET, POST, PUT, OPTIONS');
-
-    return $res;
+    return $app->response;
     exit;
 }
 
