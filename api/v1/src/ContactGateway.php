@@ -170,6 +170,17 @@ class ContactGateway
             $succ = true;
         }
 
+        if($requestBody->UserId != null && $requestBody->UserId == -1){
+            $sql = "UPDATE contacts SET UserId = :nid WHERE UserId = :ui AND ContactId = :ci";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindValue(":ui", $uid, PDO::PARAM_INT);
+            $stmt->bindValue(":ci", $para->id, PDO::PARAM_INT);
+            $stmt->bindValue(":nid", $requestBody->UserId, PDO::PARAM_INT);
+            $stmt->execute();
+            $data = $stmt->fetch(PDO::FETCH_ASSOC);
+            $succ = true;
+        }
+
         if(!$succ){
             http_response_code(400);
             echo "Request body was empty or invalid.";
